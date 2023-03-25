@@ -30,5 +30,6 @@ public class hw1_3 {
             default:
                 System.out.println("Error!");
         }
+        inp.close();
     }
 }
