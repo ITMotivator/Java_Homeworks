@@ -1,59 +1,39 @@
 
-/**
- * program
- */
+import java.util.*;
+
 public class program {
 
     public static void main(String[] args) {
-        String str = "aaababaaab";
-        System.out.println(ifPalyndrom(str));
+        Scanner inp = new Scanner(System.in);
+        System.out.println("Enter first word ");
+        String word1 = inp.next();
+        System.out.println("Enter second word ");
+        String word2 = inp.next();
+        inp.close();
+        System.out.println(checkIfIzom(word1, word2));
+
     }
 
-    static String compressStr(String str) {
-
-        StringBuffer strBuffer = new StringBuffer(str);
-        StringBuffer result = new StringBuffer();
-        int len = strBuffer.length();
-        int count = 1;
-        for (int i = 1; i < len; i++) {
-            if (i != len - 1) {
-                if (strBuffer.charAt(i) != strBuffer.charAt(i - 1)) {
-                    result.append(strBuffer.charAt(i - 1));
-                    if (count > 1) {
-                        result.append(count);
+    static Boolean checkIfIzom(String word_1, String word_2) {
+        StringBuilder str1 = new StringBuilder(word_1);
+        StringBuilder str2 = new StringBuilder(word_2);
+        if (str1.length() != str2.length()) {
+            return false;
+        } else {
+            int count = str1.length();
+            Map<Character, Character> dict = new HashMap<Character, Character>(count);
+            for (int i = 0; i < count; i++) {
+                if (dict.containsKey(str1.charAt(i))) {
+                    if (dict.get(str1.charAt(i)) != str2.charAt(i)) {
+                        return false;
                     }
-                    count = 1;
+
+                } else if (dict.containsValue(str2.charAt(i))) {
+                    return false;
                 } else
-                    count++;
-            } else {
-                if (strBuffer.charAt(i) != strBuffer.charAt(i - 1)) {
-                    result.append(strBuffer.charAt(i - 1));
-                    if (count > 1) {
-                        result.append(count);
-                    }
-                    result.append(strBuffer.charAt(i));
-                } else {
-                    result.append(strBuffer.charAt(i - 1));
-                    result.append(count);
-                }
-
+                    dict.put(str1.charAt(i), str2.charAt(i));
             }
+            return true;
         }
-        return result.toString();
-    }
-
-    static Boolean ifPalyndrom(String str) {
-        boolean result = true;
-        StringBuffer strBuffer = new StringBuffer(str);
-        int len = strBuffer.length();
-        int j = len - 1;
-        for (int i = 0; i < len / 2; i++) {
-            if (strBuffer.charAt(i) != strBuffer.charAt(j)) {
-                return false;
-            } else
-                j--;
-        }
-
-        return result;
     }
 }

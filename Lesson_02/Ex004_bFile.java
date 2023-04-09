@@ -16,8 +16,7 @@ public class Ex004_bFile {
     static Charset charset = StandardCharsets.UTF_8;
 
     static void loadFile(String path) throws IOException {
-        try (InputStream stream = 
-        new BufferedInputStream(new FileInputStream(path))) {
+        try (InputStream stream = new BufferedInputStream(new FileInputStream(path))) {
             int n = readInt(stream);
             int b1;
             int b2;
@@ -30,8 +29,8 @@ public class Ex004_bFile {
                 b2 = stream.read(binText);
                 if (b1 != binWord.length || b2 != binText.length)
                     throw new IOException("Error read file");
-                data.put(new String(binWord, charset), 
-                         new String(binText, charset));
+                data.put(new String(binWord, charset),
+                        new String(binText, charset));
             }
         }
     }
@@ -88,8 +87,8 @@ public class Ex004_bFile {
 
     public static void main(String[] args) {
         String file = "test.bin";
-        //create file
-        
+        // create file
+
         try {
             add("key1", "значение 1");
             add("key2", "значение 2");
@@ -98,8 +97,8 @@ public class Ex004_bFile {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        //read file
-        
+        // read file
+
         try {
             loadFile(file);
             String key1 = "key1";
