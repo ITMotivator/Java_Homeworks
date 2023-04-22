@@ -29,6 +29,8 @@ public abstract class Employee implements Comparable<Employee> {
 
     @Override
     public int compareTo(Employee o) {
-        return Integer.compare(seniority, o.getSeniority());
+        int res = Integer.compare(seniority, o.getSeniority());
+        if (res == 0) res = o.name.compareTo(name);
+        return res;
     }
 }
