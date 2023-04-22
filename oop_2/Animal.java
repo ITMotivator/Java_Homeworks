@@ -5,7 +5,6 @@ public abstract class Animal {
     protected Integer appetite;
     protected Boolean hunger;
 
-
     public Animal(String name, Integer appetite) {
         this.name = name;
         this.appetite = appetite;
@@ -20,10 +19,11 @@ public abstract class Animal {
         return this.hunger;
     }
 
-    //Чтобы животное проголодалось, можно, например, вызывать метод ниже при определенных условиях.
-    private void gethungry() {
-        this.hunger = true;
-    }
+    // Чтобы животное проголодалось, можно, например, вызывать метод ниже при
+    // определенных условиях.
+    // private void gethungry() {
+    // this.hunger = true;
+    // }
 
     public String jump() {
         return "Animal " + this.name + "jumps";
