@@ -47,7 +47,7 @@ public class Box<T extends Fruit> {
             }
         } else {
             fruits.add(fruit);
-            this.boxType = fruits.get(0).getFruitType();
+            this.boxType = this.getClass().getName();
         }
     }
 
@@ -66,7 +66,7 @@ public class Box<T extends Fruit> {
             }
         } else {
             fruits.addAll(fewFruits);
-            this.boxType = fruits.get(0).getFruitType();
+            this.boxType = this.getClass().getName();
         }
     }
 
