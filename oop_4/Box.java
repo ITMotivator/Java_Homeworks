@@ -21,7 +21,7 @@ public class Box<T extends Fruit> {
         this.capacity = capacity;
         if (list.size() * list.get(0).getWeight() <= capacity) {
             this.fruits = new ArrayList<T>(list);
-            this.boxType = fruits.get(0).getFruitType();
+            this.boxType = this.getClass().getName();
         } else {
             System.out.println("Box " + this.id + " is too small for these fruits");
         }
